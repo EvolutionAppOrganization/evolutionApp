@@ -32,37 +32,68 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   static const colorText = Color.fromARGB(255, 100, 100, 100);
+  var textCad = RichText(
+    text: TextSpan(
+      // Note: Styles for TextSpans must be explicitly defined.
+      // Child text spans will inherit styles from parent
+      style: const TextStyle(
+        fontSize: 22.0,
+        color: colorText,
+      ),
+      children: <TextSpan>[
+        TextSpan(text: 'Sou '),
+        TextSpan(text: 'gestor ', style: const TextStyle(fontWeight: FontWeight.bold)),
+        TextSpan(text: 'e '),
+          TextSpan(text: 'não tenho conta ', style: const TextStyle(fontWeight: FontWeight.bold)),
+      ],
+    ),
+  );
 
+    var textLogin = RichText(
+    text: TextSpan(
+      // Note: Styles for TextSpans must be explicitly defined.
+      // Child text spans will inherit styles from parent
+      style: const TextStyle(
+        fontSize: 22.0,
+        color: colorText,
+      ),
+      children: <TextSpan>[
+        TextSpan(text: 'Já '),
+        TextSpan(text: 'tenho conta ', style: const TextStyle(fontWeight: FontWeight.bold))
+      ],
+    ),
+  );
+
+      var textEnter = RichText(
+    text: TextSpan(
+      // Note: Styles for TextSpans must be explicitly defined.
+      // Child text spans will inherit styles from parent
+      style: const TextStyle(
+        fontSize: 28.0,
+        color: colorText,
+      ),
+      children: <TextSpan>[
+        TextSpan(text: 'Olá, seja bem vindx ao '),
+        TextSpan(text: 'Evolution.org! ', style: TextStyle(color: Color(0xffffd1c7), fontWeight: FontWeight.bold))
+      ],
+    ),
+  );
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.fromLTRB(10, 30, 10, 0),
+        padding: const EdgeInsets.fromLTRB(10, 50, 10, 0),
           // child: Center(
                 child: ListView(
               children: <Widget>[
                  Container(
                     // alignment: Alignment.center,
                     padding: const EdgeInsets.all(10),
-                    child: const Text(
-                      'Olá, seja bem vindx ao Evolution.org!',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          color: colorText,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 30),
-                    )
+                    child: textEnter
                   ),
                 Container(
                     // alignment: Alignment.center,
                     padding: const EdgeInsets.fromLTRB(10, 70, 10, 0),
-                    child: const Text(
-                      'Já tenho conta',
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                          color: colorText,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 24),
-                    )
+                    child: textLogin
                   ),
                 Container(
                   padding: const EdgeInsets.all(10),
@@ -87,7 +118,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
                 Container(
                       height: 70,
-                      padding: const EdgeInsets.fromLTRB(10, 30, 10, 0),
+                      padding: const EdgeInsets.fromLTRB(50, 30, 50, 0),
                       child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(Color(0xff8798D6)),
@@ -112,18 +143,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     ),
                     Container(
                     padding: const EdgeInsets.fromLTRB(10, 70, 10, 0),
-                      child: const Text(
-                        'Sou gestor e não tenho conta',
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                            color: colorText,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 24),
-                      )
+                      child: textCad
                     ),
                               Container(
                       height: 70,
-                      padding: const EdgeInsets.fromLTRB(10, 30, 10, 0),
+                       padding: const EdgeInsets.fromLTRB(50, 30, 50, 0),
                       child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(Color(0xff8798D6)),
