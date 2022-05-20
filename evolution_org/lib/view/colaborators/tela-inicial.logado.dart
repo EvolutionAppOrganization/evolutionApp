@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../colaborators/tela-inicial.logado.dart';
+void main() => runApp(new Colaborators());
 
-void main() => runApp(const InitialLogged());
-
-class InitialLogged extends StatelessWidget {
-  const InitialLogged({Key? key}) : super(key: key);
+class Colaborators extends StatelessWidget {
+  String groupName = '';
+  Colaborators({grupo = ""}){
+    this.groupName = grupo["nome"];
+  }
 
   static const String _title = 'Evolution.org';
 
@@ -18,13 +19,12 @@ class InitialLogged extends StatelessWidget {
           color: Colors.white,
         ),
         children: <TextSpan>[
-          TextSpan(text: 'Olá, '),
-          TextSpan(
-              text: 'Fulano !',
-              style: const TextStyle(fontWeight: FontWeight.bold)),
+          TextSpan(text: this.groupName),
         ],
       ),
     );
+
+
     return MaterialApp(
       title: "Evolution.org",
       home: Scaffold(
@@ -57,8 +57,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   static const colorText = Color.fromARGB(255, 100, 100, 100);
 
   final List entries = [
-    {"nome": "Produtos", "descricao": "Área do time"},
-    {"nome": "Dev", "descricao": "Área do time"},
+    {"nome": "Pedro", "descricao": "Desenvolvedor"},
+    {"nome": "João", "descricao": "Designer"},
   ];
   final List<int> colorCodes = <int>[600, 500, 100];
 
@@ -189,14 +189,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   ),
                   elevation: 5,
                   shadowColor: Colors.black12,
-                  child: InkWell(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => new Colaborators(grupo: entries[index])),
-                          );
-                      },
-                    child: Padding(
+                  child: Padding(
                       padding: EdgeInsets.all(10.0),
                       child: Column(children: <Widget>[
                         Align(alignment: Alignment.centerLeft, child:  Text('${entries[index]["nome"]}',
@@ -210,9 +203,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                         // Container(
                           // child: 
                         // )
-                      ])),
-                 
-                      ),)
+                      ]))),
             ));
           }),
     );

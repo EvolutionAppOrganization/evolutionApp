@@ -1,4 +1,7 @@
+import 'package:evolution_org/view/cadastro/cadastro.dart';
 import 'package:flutter/material.dart';
+
+import '../tela-inicial-logado/tela-inicial.logado.dart';
 
 void main() => runApp(const Initial());
 
@@ -136,8 +139,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                           ),
                         ),
                         onPressed: () {
-                          print(nameController.text);
-                          print(passwordController.text);
+
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const InitialLogged()),
+                            );
                         },
                       )
                     ),
@@ -165,8 +171,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                           ),
                         ),
                         onPressed: () {
-                          print(nameController.text);
-                          print(passwordController.text);
+                         Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const Cadastro()),
+                            );
                         },
                       )
                     )

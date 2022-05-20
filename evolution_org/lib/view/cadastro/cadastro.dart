@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../crie-grupo/crie-grupo.dart';
+
 void main() => runApp(const Cadastro());
 
 class Cadastro extends StatelessWidget {
@@ -134,8 +136,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   onPressed: () {
-                    print(emailController.text);
-                    print(passwordController.text);
+                    Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const CrieGrupo()),
+                            );
                   },
                 )
                 ),
