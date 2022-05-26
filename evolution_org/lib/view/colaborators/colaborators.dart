@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../colaborator/colaborator.dart';
+
 void main() => runApp(new Colaborators());
 
 class Colaborators extends StatelessWidget {
@@ -57,8 +59,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   static const colorText = Color.fromARGB(255, 100, 100, 100);
 
   final List entries = [
-    {"nome": "Pedro", "descricao": "Desenvolvedor"},
-    {"nome": "João", "descricao": "Designer"},
+    {"nome": "Pedro", "cargo": "Desenvolvedor", "departamento": "Indefinido"},
+    {"nome": "João", "cargo": "Designer", "departamento": "Indefinido"},
   ];
   final List<int> colorCodes = <int>[600, 500, 100];
 
@@ -171,7 +173,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       // )
       // )
 
-      child: ListView.builder(
+    child: ListView.builder(
           padding: const EdgeInsets.all(8),
           itemCount: entries.length,
           itemBuilder: (BuildContext context, int index) {
@@ -189,12 +191,19 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   ),
                   elevation: 5,
                   shadowColor: Colors.black12,
-                  child: Padding(
+                  child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => new Colaborator(colaborator: entries[index])),
+                          );
+                      },
+                    child: Padding(
                       padding: EdgeInsets.all(10.0),
                       child: Column(children: <Widget>[
                         Align(alignment: Alignment.centerLeft, child:  Text('${entries[index]["nome"]}',
                               style: TextStyle(color: colorText, fontSize: 24))),
-                         Align(alignment: Alignment.centerLeft, child: Text('\n${entries[index]["descricao"]}',
+                         Align(alignment: Alignment.centerLeft, child: Text('\n${entries[index]["cargo"]}',
                               style: TextStyle(color: colorText, fontSize: 15))),
                         // Padding(
                           // padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
@@ -203,7 +212,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                         // Container(
                           // child: 
                         // )
-                      ]))),
+                      ])),
+                 
+                      ),)
             ));
           }),
     );

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../colaborators/tela-inicial.logado.dart';
+import '../colaborators/colaborators.dart';
 
 void main() => runApp(const InitialLogged());
 
@@ -62,114 +62,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   ];
   final List<int> colorCodes = <int>[600, 500, 100];
 
-  var firstText = RichText(
-    text: TextSpan(
-      style: const TextStyle(
-        fontSize: 24.0,
-        color: colorText,
-      ),
-      children: <TextSpan>[
-        TextSpan(text: 'Informações '),
-        TextSpan(
-            text: 'cadastrais',
-            style: const TextStyle(fontWeight: FontWeight.bold)),
-      ],
-    ),
-  );
 
-  var secondText = RichText(
-    text: TextSpan(
-      style: const TextStyle(
-        fontSize: 24.0,
-        color: colorText,
-      ),
-      children: <TextSpan>[
-        TextSpan(text: 'Crie um '),
-        TextSpan(
-            text: 'grupo ',
-            style: const TextStyle(fontWeight: FontWeight.bold)),
-        TextSpan(text: 'do seu time'),
-      ],
-    ),
-  );
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.fromLTRB(10, 50, 10, 0),
       // child: Center(
-
-      // child: ListView(
-      //   children: <Widget>[
-      //     Container(
-      //         // alignment: Alignment.center,
-      //         padding: const EdgeInsets.all(10),
-      //         child: SizedBox(
-      //           width: 200.0,
-      //           height: 100.0,
-      //           child: Card(
-      //               shape: RoundedRectangleBorder(
-      //                 borderRadius: BorderRadius.circular(10.0),
-      //               ),
-      //               elevation: 5,
-      //               shadowColor: Colors.black12,
-      //               child: Padding(
-      //                   padding: EdgeInsets.all(10.0),
-      //                   child: Row(children: const <Widget>[
-      //                     Icon(
-      //                       Icons.badge,
-      //                       color: Colors.black,
-      //                       size: 80.0,
-      //                       semanticLabel:
-      //                           'Text to announce in accessibility modes',
-      //                     ),
-      //                     Padding(
-      //                       padding:
-      //                           const EdgeInsets.fromLTRB(15, 20, 10, 10),
-      //                       child: Text(
-      //                         'Colaborador',
-      //                         style:
-      //                             TextStyle(color: colorText, fontSize: 24),
-      //                       ),
-      //                     )
-      //                   ]))),
-      //         )),
-      //     Container(
-      //         // alignment: Alignment.center,
-      //         padding: const EdgeInsets.all(10),
-      //         child: SizedBox(
-      //           width: 200.0,
-      //           height: 100.0,
-      //           child: Card(
-      //               shape: RoundedRectangleBorder(
-      //                 borderRadius: BorderRadius.circular(10.0),
-      //               ),
-      //               elevation: 5,
-      //               shadowColor: Colors.black12,
-      //               child: Padding(
-      //                   padding: EdgeInsets.all(10.0),
-      //                   child: Row(children: const <Widget>[
-      //                     Icon(
-      //                       Icons.group,
-      //                       color: Colors.black,
-      //                       size: 80.0,
-      //                       semanticLabel:
-      //                           'Text to announce in accessibility modes',
-      //                     ),
-      //                     Padding(
-      //                       padding:
-      //                           const EdgeInsets.fromLTRB(15, 20, 10, 10),
-      //                       child: Text(
-      //                         'Grupos',
-      //                         style:
-      //                             TextStyle(color: colorText, fontSize: 24),
-      //                       ),
-      //                     )
-      //                   ]))),
-      //         )),
-      //   ],
-      // )
-      // )
 
       child: ListView.builder(
           padding: const EdgeInsets.all(8),

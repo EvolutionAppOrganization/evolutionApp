@@ -5,7 +5,7 @@ import 'package:evolution_org/view/tela-inicial-logado/tela-inicial.logado.dart'
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const InitialLogged());
+  runApp(const Initial());
 }
 
 // class MyApp extends StatelessWidget {

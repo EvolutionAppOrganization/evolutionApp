@@ -33,6 +33,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController sobrenomeController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+    TextEditingController cargoController = TextEditingController();
+
+    String selectedValue = "Gestor";
   static const colorText = Color.fromARGB(255, 100, 100, 100);
   var firstText = RichText(
     text: TextSpan(
@@ -44,6 +47,21 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         TextSpan(text: 'Informações '),
         TextSpan(
             text: 'cadastrais',
+            style: const TextStyle(fontWeight: FontWeight.bold)),
+      ],
+    ),
+  );
+
+    var textCad = RichText(
+    text: TextSpan(
+      style: const TextStyle(
+        fontSize: 18.0,
+        color: colorText,
+      ),
+      children: <TextSpan>[
+        TextSpan(text: 'Informações de '),
+        TextSpan(
+            text: 'carreira',
             style: const TextStyle(fontWeight: FontWeight.bold)),
       ],
     ),
@@ -110,7 +128,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               ),
             ),
             Container(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
               child: TextField(
                 obscureText: true,
                 controller: passwordController,
@@ -120,6 +138,57 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ),
             ),
+
+
+
+ Container(
+                // alignment: Alignment.center,
+                 padding: const EdgeInsets.fromLTRB(10, 30, 10, 10),
+                child: textCad),
+
+
+
+   Container(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: TextField(
+                obscureText: true,
+                controller: cargoController,
+                decoration: const InputDecoration(
+                  // border: OutlineInputBorder(),
+                  labelText: 'Cargo',
+                ),
+              ),
+            ),
+
+   Container(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+              child: TextField(
+                obscureText: true,
+                controller: cargoController,
+                decoration: const InputDecoration(
+                  // border: OutlineInputBorder(),
+                  labelText: 'Nível de experiência',
+                ),
+              ),
+            ),
+
+
+            Container(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+             child:DropdownButton<String>(
+                items: <String>['Gestor', 'Liderado'].map((String selectedValue) {
+                  return DropdownMenuItem<String>(
+                    value: selectedValue,
+                    child: Text(selectedValue),
+                  );
+                }).toList(),
+                onChanged: (_) {},
+              )
+            ),
+
+
+
+
             Container(
                 height: 70,
                 padding: const EdgeInsets.fromLTRB(50, 30, 50, 0),
