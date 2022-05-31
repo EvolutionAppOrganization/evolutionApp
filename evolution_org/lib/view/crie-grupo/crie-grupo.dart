@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../grupo-create/grupo-create.dart';
+
 void main() => runApp(const CrieGrupo());
 
 class CrieGrupo extends StatelessWidget {
@@ -116,7 +118,10 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                           ),
                         ),
                         onPressed: () {
-                         
+                             Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const GrupoCreate()),
+                            );
                         },
                       )
                     ),

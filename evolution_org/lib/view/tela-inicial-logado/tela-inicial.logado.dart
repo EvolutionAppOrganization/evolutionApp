@@ -67,7 +67,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.fromLTRB(10, 50, 10, 0),
+      padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
       // child: Center(
 
       child: ListView.builder(

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../crie-grupo/crie-grupo.dart';
-import '../grupo-create/grupo-create.dart';
 
-void main() => runApp(const Cadastro());
+void main() => runApp(const FeedBacksNew());
 
-class Cadastro extends StatelessWidget {
-  const Cadastro({Key? key}) : super(key: key);
+class FeedBacksNew extends StatelessWidget {
+  const FeedBacksNew({Key? key}) : super(key: key);
 
   static const String _title = 'Evolution.org';
 
@@ -34,9 +33,9 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   TextEditingController sobrenomeController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  TextEditingController cargoController = TextEditingController();
+    TextEditingController cargoController = TextEditingController();
 
-  String selectedValue = "Gestor";
+    String selectedValue = "Gestor";
   static const colorText = Color.fromARGB(255, 100, 100, 100);
   var firstText = RichText(
     text: TextSpan(
@@ -53,7 +52,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
     ),
   );
 
-  var textCad = RichText(
+    var textCad = RichText(
     text: TextSpan(
       style: const TextStyle(
         fontSize: 18.0,
@@ -70,6 +69,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   var secondText = RichText(
     text: TextSpan(
+
       style: const TextStyle(
         fontSize: 24.0,
         color: colorText,
@@ -83,6 +83,8 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
       ],
     ),
   );
+
+    String dropdownValue = 'One';
 
   @override
   Widget build(BuildContext context) {
@@ -101,79 +103,26 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 controller: nomeController,
                 decoration: const InputDecoration(
                   // border: OutlineInputBorder(),
-                  labelText: 'Nome',
+                  labelText: 'Tema',
                 ),
               ),
             ),
-            Container(
-              padding: const EdgeInsets.all(10),
-              child: TextField(
-                controller: sobrenomeController,
-                decoration: const InputDecoration(
-                  // border: OutlineInputBorder(),
-                  labelText: 'Sobrenome',
-                ),
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.all(10),
-              child: TextField(
-                controller: emailController,
-                decoration: const InputDecoration(
-                  // border: OutlineInputBorder(),
-                  labelText: 'Email',
-                ),
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
-              child: TextField(
-                obscureText: true,
-                controller: passwordController,
-                decoration: const InputDecoration(
-                  // border: OutlineInputBorder(),
-                  labelText: 'Senha',
-                ),
-              ),
-            ),
-            Container(
-                // alignment: Alignment.center,
-                padding: const EdgeInsets.fromLTRB(10, 30, 10, 10),
-                child: textCad),
+
+
+
             Container(
               padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-              child: TextField(
-                obscureText: true,
-                controller: cargoController,
-                decoration: const InputDecoration(
-                  // border: OutlineInputBorder(),
-                  labelText: 'Cargo',
-                ),
-              ),
+             child:DropdownButton<String>(
+                items: <String>['Gestor', 'Liderado'].map((String selectedValue) {
+                  return DropdownMenuItem<String>(
+                    value: selectedValue,
+                    child: Text(selectedValue),
+                  );
+                }).toList(),
+                onChanged: (_) {},
+              )
             ),
-            Container(
-              padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-              child: TextField(
-                obscureText: true,
-                controller: cargoController,
-                decoration: const InputDecoration(
-                  // border: OutlineInputBorder(),
-                  labelText: 'Nível de experiência',
-                ),
-              ),
-            ),
-            Container(
-                padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-                child: DropdownButton<String>(
-                  items: <String>['Gestor', 'Liderado']
-                      .map((String selectedValue) {
-                    return DropdownMenuItem<String>(
-                      value: selectedValue,
-                      child: Text(selectedValue),
-                    );
-                  }).toList(),
-                  onChanged: (_) {},
-                )),
+
             Container(
                 height: 70,
                 padding: const EdgeInsets.fromLTRB(50, 30, 50, 0),
@@ -186,20 +135,26 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                         borderRadius: BorderRadius.circular(18.0),
                       ))),
                   child: const Text(
-                    'Adicionar colaborador',
+                    'Adicionar Grupo',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   onPressed: () {
                     Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const CrieGrupo()),
-                    );
+                              context,
+                              MaterialPageRoute(builder: (context) => const CrieGrupo()),
+                            );
                   },
-                )),
+                )
+                ),
+
+
+   
+             
+           
           ],
         )
         // )
         );
   }
+
 }
