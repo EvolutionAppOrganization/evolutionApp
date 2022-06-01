@@ -34,7 +34,7 @@ class InitialLogged extends StatelessWidget {
           backgroundColor: Color(0xff8798D6),
           centerTitle: false,
           title: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 30, 0, 0), child: tabText),
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 0), child: tabText),
         ),
         body: Center(child: const MyStatefulWidget()),
       ),
@@ -62,8 +62,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   ];
   final List<int> colorCodes = <int>[600, 500, 100];
 
-
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -80,39 +78,47 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 // child: Center(child: Text('Entry ${entries[index]}')),
 
                 child: SizedBox(
-              width: 200.0,
-              height: 100.0,
-              child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  elevation: 5,
-                  shadowColor: Colors.black12,
-                  child: InkWell(
-                      onTap: () {
-                        Navigator.push(
+                    width: 200.0,
+                    height: 100.0,
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      elevation: 5,
+                      shadowColor: Colors.black12,
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => new Colaborators(grupo: entries[index])),
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    new Colaborators(grupo: entries[index])),
                           );
-                      },
-                    child: Padding(
-                      padding: EdgeInsets.all(10.0),
-                      child: Column(children: <Widget>[
-                        Align(alignment: Alignment.centerLeft, child:  Text('${entries[index]["nome"]}',
-                              style: TextStyle(color: colorText, fontSize: 24))),
-                         Align(alignment: Alignment.centerLeft, child: Text('\n${entries[index]["descricao"]}',
-                              style: TextStyle(color: colorText, fontSize: 15))),
-                        // Padding(
-                          // padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
-                          // child: 
-                        // ),
-                        // Container(
-                          // child: 
-                        // )
-                      ])),
-                 
-                      ),)
-            ));
+                        },
+                        child: Padding(
+                            padding: EdgeInsets.all(10.0),
+                            child: Column(children: <Widget>[
+                              Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text('${entries[index]["nome"]}',
+                                      style: TextStyle(
+                                          color: colorText, fontSize: 24))),
+                              Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: Text(
+                                      '\n${entries[index]["descricao"]}',
+                                      style: TextStyle(
+                                          color: colorText, fontSize: 15))),
+                              // Padding(
+                              // padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+                              // child:
+                              // ),
+                              // Container(
+                              // child:
+                              // )
+                            ])),
+                      ),
+                    )));
           }),
     );
   }

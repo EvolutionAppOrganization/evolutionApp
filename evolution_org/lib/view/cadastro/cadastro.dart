@@ -15,7 +15,16 @@ class Cadastro extends StatelessWidget {
     return MaterialApp(
       title: _title,
       home: Scaffold(
-        appBar: null,
+        appBar: new AppBar(
+            backgroundColor: Color.fromARGB(0, 135, 152, 214),
+            elevation: 0,
+            centerTitle: false,
+            toolbarHeight: 100,
+            leading: new IconButton(
+                icon: new Icon(Icons.arrow_back, color:Color(0xff8798D6)),
+                onPressed: () {
+                  Navigator.pop(context, true);
+                })),
         body: Center(child: const MyStatefulWidget()),
       ),
     );
@@ -87,7 +96,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: const EdgeInsets.fromLTRB(10, 150, 10, 0),
+        padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
         // child: Center(
         child: ListView(
           children: <Widget>[

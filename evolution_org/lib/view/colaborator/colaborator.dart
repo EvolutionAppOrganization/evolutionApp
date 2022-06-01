@@ -21,7 +21,12 @@ class Colaborator extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           elevation: 0,
-          toolbarHeight: 150,
+          toolbarHeight: 100,
+          leading: new IconButton(
+              icon: new Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.pop(context, true);
+              }),
           backgroundColor: Color(0xff8798D6),
           centerTitle: false,
           title: Padding(
@@ -48,6 +53,13 @@ class Colaborator extends StatelessWidget {
               )),
         ),
         body: Center(child: const MyStatefulWidget()),
+           floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Add your onPressed code here!
+        },
+        backgroundColor: Color(0xff8798D6),
+        child: const Icon(Icons.add),
+      ),
       ),
     );
   }

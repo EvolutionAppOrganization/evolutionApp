@@ -33,10 +33,14 @@ class Colaborators extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           toolbarHeight: 100,
+          leading: new IconButton(
+              icon: new Icon(Icons.arrow_back),
+              onPressed: () {
+                Navigator.pop(context, true);
+              }),
           backgroundColor: Color(0xff8798D6),
           centerTitle: false,
-          title: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 30, 0, 0), child: tabText),
+          title: tabText,
         ),
         body: Center(child: const MyStatefulWidget()),
       ),

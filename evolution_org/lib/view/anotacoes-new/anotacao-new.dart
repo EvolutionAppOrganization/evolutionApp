@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../crie-grupo/crie-grupo.dart';
 
-void main() => runApp(const FeedBacksNew());
+void main() => runApp(const AnotacaoNew());
 
-class FeedBacksNew extends StatelessWidget {
-  const FeedBacksNew({Key? key}) : super(key: key);
+class AnotacaoNew extends StatelessWidget {
+  const AnotacaoNew({Key? key}) : super(key: key);
 
   static const String _title = 'Evolution.org';
 
@@ -25,7 +25,7 @@ class FeedBacksNew extends StatelessWidget {
           backgroundColor: Color(0xff8798D6),
           centerTitle: false,
           title: Text(
-            'Anotações 1:1',
+            'FeedBacks',
             style: const TextStyle(
               fontSize: 32.0,
               color: Colors.white,
@@ -46,7 +46,8 @@ class MyStatefulWidget extends StatefulWidget {
 }
 
 class _MyStatefulWidgetState extends State<MyStatefulWidget> {
-  TextEditingController anotacaoController = TextEditingController();
+  TextEditingController temaController = TextEditingController();
+  TextEditingController feedbackController = TextEditingController();
   
 
 
@@ -61,15 +62,24 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         // child: Center(
         child: ListView(
           children: <Widget>[
-      
+            Container(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: temaController,
+                decoration: const InputDecoration(
+                  // border: OutlineInputBorder(),
+                  labelText: 'Tema',
+                ),
+              ),
+            ),
             Container(
               padding: const EdgeInsets.all(10),
               child: TextField(
                 maxLength: 120,
-                controller: anotacaoController,
+                controller: feedbackController,
                 decoration: const InputDecoration(
                   // border: OutlineInputBorder(),
-                  labelText: 'Escreva sua anotação aqui...',
+                  labelText: 'Escreva seu feedback aqui...',
                 ),
               ),
             ),
@@ -85,7 +95,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                         borderRadius: BorderRadius.circular(18.0),
                       ))),
                   child: const Text(
-                    'Adicionar Anotação',
+                    'Adicionar Feedback',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   onPressed: () {

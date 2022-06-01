@@ -1,5 +1,7 @@
+import 'package:evolution_org/view/anotacoes-new/anotacao-new.dart';
 import 'package:evolution_org/view/cadastro/cadastro.dart';
 import 'package:evolution_org/view/crie-grupo/crie-grupo.dart';
+import 'package:evolution_org/view/feedBacks-new/feedbacks-new.dart';
 import 'package:evolution_org/view/initial/initial.dart';
 import 'package:evolution_org/view/tela-inicial-logado/tela-inicial.logado.dart';
 import 'package:flutter/material.dart';
